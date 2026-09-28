@@ -27,7 +27,12 @@ const doctors = [
 const fieldClass =
   "w-full rounded-2xl border border-accent bg-white/95 px-4 py-3 text-sm text-foreground outline-none transition-shadow placeholder:text-muted-foreground focus:ring-2 focus:ring-ring";
 
-export function Appointment() {
+type AppointmentProps = {
+  imageSrc?: string;
+  imageAlt?: string;
+};
+
+export function Appointment({ imageSrc, imageAlt = "SS Dental Hospital care team" }: AppointmentProps) {
   const [submitting, setSubmitting] = useState(false);
 
   const getValue = (formData: FormData, field: string) => {
@@ -45,6 +50,20 @@ export function Appointment() {
             title="Your Health Deserves the Best Care"
             subtitle="Share a few details and our care coordinator will confirm your slot within an hour, usually sooner."
           />
+          {imageSrc ? (
+            <Reveal delay={0.08}>
+              <div className="mt-9 overflow-hidden rounded-[2rem] border border-white/75 bg-white shadow-lift">
+                <img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  width={900}
+                  height={760}
+                  loading="eager"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+            </Reveal>
+          ) : null}
         </div>
 
         <Reveal delay={0.1}>

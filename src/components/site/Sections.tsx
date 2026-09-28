@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   ShieldPlus,
   Smile,
+  Sparkles,
   Stethoscope,
   Syringe,
   Users,
@@ -24,8 +25,8 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import aboutImage from "@/assets/about.png";
-import aboutHero from "@/assets/about1.png";
+import aboutImage from "@/assets/about3.jpg";
+import aboutHero from "@/assets/about4.jpg";
 import afterTreatment from "@/assets/after.png";
 import beforeTreatment from "@/assets/before.png";
 import badBreathCare from "@/assets/bad breath care.jpg";
@@ -437,44 +438,89 @@ export function Doctors() {
 
 export function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-[#fbf7ff] py-24 sm:py-28">
+    <section
+      id="services"
+      className="relative overflow-hidden bg-[#FCFAFF] px-[18px] py-[48px] sm:px-6 sm:py-16 lg:px-6 lg:pb-[90px] lg:pt-[70px]"
+    >
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(216,180,254,0.48),transparent_30%),radial-gradient(circle_at_92%_12%,rgba(192,132,252,0.28),transparent_28%),linear-gradient(180deg,#ffffff_0%,#fbf7ff_48%,#f4e9ff_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(216,180,254,0.42),transparent_28%),radial-gradient(circle_at_88%_12%,rgba(238,226,255,0.78),transparent_30%),linear-gradient(180deg,#ffffff_0%,#FCFAFF_42%,#F7F0FF_100%)]"
       />
       <div
         aria-hidden
-        className="absolute left-0 top-20 h-72 w-48 rounded-r-full bg-white/55 blur-2xl"
+        className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#EEE2FF]/80 blur-3xl"
       />
       <div
         aria-hidden
-        className="absolute bottom-16 right-0 h-80 w-56 rounded-l-full bg-lavender-soft/70 blur-2xl"
+        className="absolute -right-20 top-24 h-80 w-80 rounded-full bg-white/80 blur-3xl"
       />
+      <svg
+        aria-hidden
+        className="absolute inset-x-0 top-12 h-48 w-full text-primary/10"
+        viewBox="0 0 1440 220"
+        fill="none"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M-40 148C154 56 298 46 472 112C652 180 808 185 996 92C1154 14 1284 18 1480 86"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="34"
+        />
+      </svg>
 
-      <div className="relative mx-auto max-w-7xl px-4">
+      <div className="relative mx-auto max-w-[1180px]">
+        <div aria-hidden className="pointer-events-none absolute left-4 top-10 hidden lg:block">
+          <motion.div
+            className="relative h-44 w-44"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="absolute inset-4 rounded-full bg-lavender-soft/70 blur-2xl" />
+            <div className="absolute left-10 top-8 h-24 w-20 rounded-[42%_42%_54%_54%/36%_36%_70%_70%] border border-white bg-white shadow-lift" />
+            <div className="absolute left-[4.4rem] top-[5.7rem] h-12 w-5 rounded-b-full bg-white shadow-soft" />
+            <div className="absolute left-[5.9rem] top-[5.7rem] h-12 w-5 rounded-b-full bg-white shadow-soft" />
+            <span className="absolute right-6 top-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/80 bg-white text-primary shadow-soft">
+              <ShieldCheck className="h-6 w-6" />
+            </span>
+            <span className="absolute bottom-7 left-2 h-9 w-16 -rotate-12 rounded-[999px_999px_999px_4px] bg-emerald-100/90" />
+            <span className="absolute bottom-10 left-10 h-7 w-12 rotate-12 rounded-[999px_999px_4px_999px] bg-emerald-200/80" />
+          </motion.div>
+        </div>
+        <div className="pointer-events-none absolute right-0 top-12 hidden text-primary/20 lg:block">
+          <Smile className="h-28 w-28 stroke-[1.1]" />
+        </div>
+        <Sparkles
+          aria-hidden
+          className="animate-float-slow pointer-events-none absolute right-36 top-44 hidden h-6 w-6 text-primary/35 lg:block"
+        />
+        <Sparkles
+          aria-hidden
+          className="animate-float-slow pointer-events-none absolute left-1/4 top-8 h-4 w-4 text-primary/30"
+        />
+
         <Reveal>
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.52fr]">
-            <div className="text-center">
-              <span className="inline-flex rounded-full border border-primary/20 bg-white/80 px-8 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary shadow-soft">
-                Services
-              </span>
-              <h2 className="mt-5 text-4xl leading-tight text-secondary-foreground sm:text-5xl">
-                Everything Your <span className="brand-gradient-text">Treatment Needs</span>
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
-                Advanced dental care, precise diagnostics and thoughtful treatment planning for
-                healthier smiles at every stage.
-              </p>
-              <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-primary" />
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex rounded-full border border-primary/20 bg-white/85 px-8 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary shadow-soft">
+              SERVICES
+            </span>
+            <h2 className="mt-6 text-4xl leading-tight text-secondary-foreground sm:text-5xl lg:text-[56px]">
+              Everything Your <span className="brand-gradient-text">Treatment Needs</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+              Advanced dental care, precise diagnostics and thoughtful treatment planning for
+              healthier smiles at every stage.
+            </p>
+            <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent" />
+          </div>
+        </Reveal>
 
-            <div className="justify-self-center text-center lg:justify-self-end lg:text-right">
-              <p className="text-3xl leading-tight text-secondary-foreground sm:text-4xl">
-                <span className="brand-gradient-text">Your Smile,</span>
-                <span className="block">Our Priority</span>
-              </p>
-              <div className="ml-auto mt-4 h-px w-36 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            </div>
+        <Reveal delay={0.08}>
+          <div className="mt-8 text-center lg:absolute lg:right-4 lg:top-28 lg:mt-0 lg:text-right">
+            <p className="font-display text-2xl leading-tight text-secondary-foreground sm:text-3xl">
+              <span className="brand-gradient-text">Your Smile,</span>
+              <span className="block">Our Priority</span>
+            </p>
           </div>
         </Reveal>
 
@@ -512,6 +558,32 @@ export function Services() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-16 overflow-hidden rounded-[2rem] border border-white/80 bg-gradient-to-br from-white via-[#FCFAFF] to-[#EEE2FF] p-7 text-center shadow-soft sm:p-9">
+            <h3 className="text-3xl leading-tight text-secondary-foreground">
+              Not Sure Which Treatment You Need?
+            </h3>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+              Book a consultation and our dental team will help you understand the most suitable
+              treatment options for your smile.
+            </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
+              <a
+                href="#appointment"
+                className="brand-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white shadow-soft transition-transform hover:scale-[1.02]"
+              >
+                Book Appointment
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full border border-primary/25 bg-white px-6 py-3 text-sm font-semibold text-secondary-foreground shadow-soft transition-transform hover:scale-[1.02]"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
