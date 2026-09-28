@@ -30,7 +30,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled ? "py-2" : "py-4",
+        scrolled ? "py-2" : "pb-4 pt-0",
       )}
     >
       <div className="mx-auto max-w-7xl px-4">
@@ -39,7 +39,7 @@ export function Navbar() {
             "flex items-center justify-between rounded-3xl px-4 py-3 transition-all duration-500 sm:px-6",
             scrolled
               ? "glass-panel"
-              : "border border-lavender/25 bg-white/90 shadow-soft backdrop-blur-sm",
+              : "rounded-t-none border border-lavender/25 bg-white/90 shadow-soft backdrop-blur-sm",
           )}
         >
           <a href="/" className="flex items-center gap-3">

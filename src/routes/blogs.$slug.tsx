@@ -44,7 +44,10 @@ function BlogDetailPage() {
                 aria-label="Breadcrumb"
                 className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground"
               >
-                <a href="/" className="inline-flex items-center gap-1 transition-colors hover:text-primary">
+                <a
+                  href="/"
+                  className="inline-flex items-center gap-1 transition-colors hover:text-primary"
+                >
                   <Home className="h-4 w-4" />
                   Home
                 </a>

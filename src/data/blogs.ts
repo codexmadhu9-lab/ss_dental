@@ -1,9 +1,9 @@
-import advancedDentalTreatmentOperatory from "@/assets/Advanced Dental Treatment Operatory.jpg";
-import clearAligners from "@/assets/clear-aligners.png";
-import dentalImplants from "@/assets/dental-implants.png";
-import oralSurgeryProcedureSuite from "@/assets/Oral Surgery & Procedure Suite.png";
-import rootCanalTreatment from "@/assets/root-canal-treatment.png";
-import teethWhiteningCosmeticDentistryUnit from "@/assets/Teeth Whitening & Cosmetic Dentistry Unit.jpg";
+import blog2Image from "@/assets/blog2.png";
+import blog3Image from "@/assets/blog3.png";
+import blog4Image from "@/assets/blog4.png";
+import blog5Image from "@/assets/blog5.png";
+import blog1Image from "@/blog1.png";
+import blog6Image from "@/blog6.png";
 
 export type BlogSection = {
   title: string;
@@ -41,8 +41,8 @@ export const blogPosts: BlogPost[] = [
       "Tooth sensitivity, bleeding gums, persistent bad breath, swelling, and recurring pain can sometimes be early warning signs of dental problems.",
     readTime: "7 min read",
     publishedDate: "September 28, 2026",
-    image: advancedDentalTreatmentOperatory,
-    imageAlt: "Dentist examining a patient's teeth in a modern dental clinic",
+    image: blog1Image,
+    imageAlt: "Dentist explaining dental X-rays to a patient in a lavender dental clinic",
     introduction: [
       "Many dental problems begin quietly. A small cavity, mild gum inflammation, or slight sensitivity may not feel serious at first, but these symptoms can sometimes become more troublesome when ignored.",
       "Regular dental checkups are important, but certain signs mean you should consider visiting a dentist sooner rather than waiting for your next routine appointment.",
@@ -86,7 +86,9 @@ export const blogPosts: BlogPost[] = [
       },
       {
         title: "6. Swelling Around a Tooth",
-        paragraphs: ["Swelling may indicate inflammation or infection. Seek care if accompanied by:"],
+        paragraphs: [
+          "Swelling may indicate inflammation or infection. Seek care if accompanied by:",
+        ],
         bullets: ["Toothache", "Fever", "Difficulty chewing", "Facial swelling"],
       },
       {
@@ -123,8 +125,8 @@ export const blogPosts: BlogPost[] = [
       "Both clear aligners and traditional braces can help improve tooth alignment, but the right choice depends on your dental needs, lifestyle, and orthodontic condition.",
     readTime: "7 min read",
     publishedDate: "September 28, 2026",
-    image: clearAligners,
-    imageAlt: "Clear aligners and braces treatment options for orthodontic care",
+    image: blog2Image,
+    imageAlt: "Clear aligner consultation in a lavender dental clinic",
     introduction: [
       "A straight smile is not only about appearance. Proper tooth alignment can also make cleaning easier and improve how the upper and lower teeth meet.",
       "Two commonly used orthodontic treatments are traditional braces and clear aligners.",
@@ -196,8 +198,8 @@ export const blogPosts: BlogPost[] = [
       "Root canal treatment is often misunderstood. Discover why it is performed, how modern treatment works, and what patients can expect.",
     readTime: "7 min read",
     publishedDate: "September 28, 2026",
-    image: rootCanalTreatment,
-    imageAlt: "Root canal treatment setup in a dental clinic",
+    image: blog3Image,
+    imageAlt: "Dentist preparing root canal treatment in a modern clinic",
     introduction: [
       "Root canal treatment is one of the most commonly misunderstood dental procedures.",
       "Modern dentistry has changed considerably, and the treatment is primarily performed to remove infection and preserve a natural tooth.",
@@ -269,8 +271,8 @@ export const blogPosts: BlogPost[] = [
       "Learn how dental implants work, who may be suitable for treatment, what the procedure involves, and how implants can replace missing teeth.",
     readTime: "7 min read",
     publishedDate: "September 28, 2026",
-    image: dentalImplants,
-    imageAlt: "Dental implant model used during a consultation",
+    image: blog4Image,
+    imageAlt: "Dental implant consultation with a tooth model",
     introduction: [
       "Missing teeth can affect appearance, speech, chewing, and confidence. Over time, tooth loss may also influence the surrounding teeth and jawbone.",
       "Dental implants are designed to act as artificial tooth roots and can support crowns, bridges, or larger restorations.",
@@ -341,8 +343,8 @@ export const blogPosts: BlogPost[] = [
       "Bleeding gums, swelling, bad breath, and gum recession may be signs of gum disease. Early evaluation can help protect your teeth and gums.",
     readTime: "7 min read",
     publishedDate: "September 28, 2026",
-    image: teethWhiteningCosmeticDentistryUnit,
-    imageAlt: "Dental consultation room prepared for gum examination",
+    image: blog5Image,
+    imageAlt: "Dentist discussing gum care with a patient",
     introduction: [
       "Healthy gums are essential for healthy teeth. Gum disease can develop slowly, and early symptoms are sometimes easy to ignore.",
       "Recognizing the warning signs can help protect your gums and teeth.",
@@ -418,8 +420,8 @@ export const blogPosts: BlogPost[] = [
       "Not every wisdom tooth needs removal. Learn when wisdom teeth can cause pain, infection, crowding, or other dental problems.",
     readTime: "7 min read",
     publishedDate: "September 28, 2026",
-    image: oralSurgeryProcedureSuite,
-    imageAlt: "Oral surgery procedure suite for wisdom tooth care",
+    image: blog6Image,
+    imageAlt: "Dentist explaining oral care with a dental model to a patient",
     introduction: [
       "Wisdom teeth are the last permanent teeth to develop. They usually appear during the late teenage years or early adulthood.",
       "Removal is not automatically required for every patient. A dentist or oral surgeon decides based on how the tooth is developing and whether it is causing problems.",

@@ -26,26 +26,26 @@ import { useEffect, useState } from "react";
 
 import aboutImage from "@/assets/about.png";
 import aboutHero from "@/assets/about1.png";
-import advancedDentalTreatmentOperatory from "@/assets/Advanced Dental Treatment Operatory.jpg";
 import afterTreatment from "@/assets/after.png";
 import beforeTreatment from "@/assets/before.png";
 import braces from "@/assets/braces.png";
 import clearAligners from "@/assets/clear-aligners.png";
 import dentalCrown from "@/assets/dental-crown.png";
-import dentalImplantTreatmentUnit from "@/assets/Dental Implant Treatment Unit.png";
 import dentalImplants from "@/assets/dental-implants.png";
-import digitalDentalImagingDiagnosticUnit from "@/assets/Digital Dental Imaging & Diagnostic Unit.png";
 import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
 import doctor4 from "@/assets/doctor-4.jpg";
-import generalDentistryTreatmentRoom from "@/assets/General Dentistry Treatment Room.jpg";
 import halitosis from "@/assets/halitosis.png";
+import infrastructure1 from "@/assets/i1.png";
+import infrastructure2 from "@/assets/i2.png";
+import infrastructure3 from "@/assets/i3.png";
+import infrastructure4 from "@/assets/i4.png";
+import infrastructure5 from "@/assets/i5.png";
+import infrastructure6 from "@/assets/i6.png";
 import kidsDentistry from "@/assets/kids-dentistry.png";
-import oralSurgeryProcedureSuite from "@/assets/Oral Surgery & Procedure Suite.png";
 import rootCanalTreatment from "@/assets/root-canal-treatment.png";
 import teethWhitening from "@/assets/teeth-whitening.png";
-import teethWhiteningCosmeticDentistryUnit from "@/assets/Teeth Whitening & Cosmetic Dentistry Unit.jpg";
 import toothDecayDentalCavity from "@/assets/tooth-decay-dental-cavity.png";
 import { blogPosts, dentalTip, getRelatedBlogPosts, type BlogPost } from "@/data/blogs";
 
@@ -182,15 +182,15 @@ const benefits = [
 ];
 
 const facilities = [
-  { name: "Advanced Dental Treatment Operatory", image: advancedDentalTreatmentOperatory },
+  { name: "Advanced Dental Treatment Operatory", image: infrastructure1 },
   {
     name: "Teeth Whitening & Cosmetic Dentistry Unit",
-    image: teethWhiteningCosmeticDentistryUnit,
+    image: infrastructure2,
   },
-  { name: "General Dentistry Treatment Room", image: generalDentistryTreatmentRoom },
-  { name: "Digital Dental Imaging & Diagnostic Unit", image: digitalDentalImagingDiagnosticUnit },
-  { name: "Oral Surgery & Procedure Suite", image: oralSurgeryProcedureSuite },
-  { name: "Dental Implant Treatment Unit", image: dentalImplantTreatmentUnit },
+  { name: "General Dentistry Treatment Room", image: infrastructure3 },
+  { name: "Digital Dental Imaging & Diagnostic Unit", image: infrastructure4 },
+  { name: "Oral Surgery & Procedure Suite", image: infrastructure5 },
+  { name: "Dental Implant Treatment Unit", image: infrastructure6 },
 ];
 
 const testimonials = [
@@ -528,7 +528,7 @@ export function BeforeAfterTreatment() {
               </div>
             </div>
 
-            <div className="lavender-card mt-7 rounded-3xl p-6 text-center">
+            <div className="lavender-treatment-card mt-7 rounded-3xl p-6 text-center">
               <h3 className="font-display text-2xl text-foreground">Smile Whitening Treatment</h3>
               <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
                 A visual comparison of the same patient before and after treatment, shown with

@@ -131,10 +131,31 @@
   box-shadow: var(--shadow-soft);
 }
 
+@utility lavender-treatment-card {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in oklab, var(--lavender-soft) 88%, white) 0%,
+      color-mix(in oklab, var(--lavender) 34%, white) 100%
+    );
+  border: 1px solid color-mix(in oklab, var(--lavender) 48%, white);
+  box-shadow: var(--shadow-soft);
+}
+
 @utility lavender-band {
   background:
     linear-gradient(135deg, color-mix(in oklab, var(--lavender-soft) 76%, white) 0%, white 46%),
     linear-gradient(180deg, white 0%, color-mix(in oklab, var(--lavender-soft) 58%, white) 100%);
+}
+
+@utility lavender-footer {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in oklab, var(--lavender-soft) 90%, white) 0%,
+      color-mix(in oklab, var(--lavender) 28%, white) 58%,
+      color-mix(in oklab, var(--lavender-deep) 16%, white) 100%
+    );
 }
 
 @utility lift-card {

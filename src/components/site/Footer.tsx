@@ -5,7 +5,6 @@ import logo from "@/assets/logo ss.png";
 const address =
   "Opp. KGH Outgate, KGH Down Rd, Opposite KGH Clock Tower, Maharani Peta, Visakhapatnam, Andhra Pradesh 530002";
 const mapQuery = `S S Dental Hospital Implant Centre, ${address}`;
-const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
 
 const quickLinks: Array<[string, string]> = [
   ["Services", "/services"],
@@ -16,7 +15,7 @@ const quickLinks: Array<[string, string]> = [
 
 export function Footer() {
   return (
-    <footer id="contact" className="lavender-band border-t border-border">
+    <footer id="contact" className="lavender-footer border-t border-border">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 lg:grid-cols-4">
         <div>
           <img
@@ -84,14 +83,6 @@ export function Footer() {
               loading="lazy"
             />
           </div>
-          <a
-            href={mapUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-4 inline-flex rounded-full border border-accent bg-white/75 px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-soft transition-colors hover:bg-secondary hover:text-primary"
-          >
-            Open map
-          </a>
         </div>
       </div>
 
