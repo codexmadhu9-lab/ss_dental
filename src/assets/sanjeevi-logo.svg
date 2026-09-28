@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">Sanjeevi Hospital</title>
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d8b4fe"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+  <rect width="240" height="240" rx="56" fill="#fbf8ff"/>
+  <path fill="url(#g)" d="M120 38c-10 0-18 8-18 18v29H73c-10 0-18 8-18 18v34c0 10 8 18 18 18h29v29c0 10 8 18 18 18h34c10 0 18-8 18-18v-29h29c10 0 18-8 18-18v-34c0-10-8-18-18-18h-29V56c0-10-8-18-18-18h-34Z"/>
+  <path d="M77 135c15-24 27-7 39-19 11-11 18-37 48-25" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
+  <circle cx="164" cy="66" r="8" fill="#fff" opacity=".9"/>
+</svg>
