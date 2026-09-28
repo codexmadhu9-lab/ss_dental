@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main>
+    <main className="bg-background">
       <Navbar />
       <Hero />
       <WhyChoose />

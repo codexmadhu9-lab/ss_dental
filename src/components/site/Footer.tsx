@@ -16,7 +16,7 @@ const quickLinks: Array<[string, string]> = [
 
 export function Footer() {
   return (
-    <footer id="contact" className="soft-canvas border-t border-border">
+    <footer id="contact" className="lavender-band border-t border-border">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 lg:grid-cols-4">
         <div>
           <img
@@ -37,7 +37,7 @@ export function Footer() {
                 key={i}
                 href="#home"
                 aria-label="SS Dental Hospital social profile"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-accent text-secondary-foreground transition-colors hover:bg-secondary"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-white/75 text-secondary-foreground shadow-soft transition-colors hover:bg-secondary hover:text-primary"
               >
                 <Icon className="h-4 w-4" />
               </a>
@@ -76,7 +76,7 @@ export function Footer() {
 
         <div>
           <h3 className="text-lg text-secondary-foreground">Find Us</h3>
-          <div className="mt-4 overflow-hidden rounded-3xl border border-accent shadow-soft">
+          <div className="mt-4 overflow-hidden rounded-3xl border border-accent bg-white shadow-soft">
             <iframe
               title="SS Dental Hospital location map"
               src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`}
@@ -88,7 +88,7 @@ export function Footer() {
             href={mapUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-flex rounded-full border border-accent px-5 py-2.5 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary"
+            className="mt-4 inline-flex rounded-full border border-accent bg-white/75 px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-soft transition-colors hover:bg-secondary hover:text-primary"
           >
             Open map
           </a>

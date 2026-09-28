@@ -34,7 +34,8 @@ export function Hero() {
       >
         <source src={homeVideo} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/35 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-lavender-deep/62 via-primary/24 to-white/18" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/18 via-transparent to-lavender-soft/12" />
 
       <div aria-hidden className="pointer-events-none absolute inset-0">
         {particles.map((p, i) => (
@@ -56,7 +57,7 @@ export function Hero() {
       <div className="relative mx-auto flex h-full max-w-7xl items-center px-4 py-8 sm:py-10">
         <motion.div style={{ opacity: fade }}>
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/55 bg-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-soft backdrop-blur-sm">
               <span className="animate-pulse-ring h-2 w-2 rounded-full bg-primary" />
               24/7 Emergency Care
             </span>
@@ -77,14 +78,14 @@ export function Hero() {
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <MagneticButton
                 href="/contact#appointment"
-                className="brand-gradient rounded-full px-7 py-4 text-sm font-semibold text-primary-foreground shadow-soft"
+                className="brand-gradient rounded-full px-7 py-4 text-sm font-semibold text-primary-foreground shadow-lift"
               >
                 <CalendarHeart className="h-4 w-4" />
                 Book an Appointment
               </MagneticButton>
               <MagneticButton
                 href="/services"
-                className="rounded-full border border-white/45 bg-white/10 px-7 py-4 text-sm font-semibold text-white shadow-soft backdrop-blur-sm"
+                className="rounded-full border border-white/70 bg-white/25 px-7 py-4 text-sm font-semibold text-white shadow-soft backdrop-blur-sm"
               >
                 Explore Our Services
                 <ArrowRight className="h-4 w-4" />

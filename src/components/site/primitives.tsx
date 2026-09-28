@@ -37,16 +37,11 @@ export function SectionHeading({
   align?: "center" | "left";
 }) {
   return (
-    <Reveal
-      className={cn(
-        "max-w-2xl",
-        align === "center" ? "mx-auto text-center" : "text-left",
-      )}
-    >
-      <span className="inline-flex items-center gap-2 rounded-full border border-accent bg-secondary px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-secondary-foreground">
+    <Reveal className={cn("max-w-2xl", align === "center" ? "mx-auto text-center" : "text-left")}>
+      <span className="brand-gradient inline-flex items-center gap-2 rounded-full border border-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-soft">
         {eyebrow}
       </span>
-      <h2 className="mt-5 text-3xl leading-tight text-foreground sm:text-4xl md:text-[2.75rem]">
+      <h2 className="brand-gradient-text mt-5 text-3xl leading-tight sm:text-4xl md:text-[2.75rem]">
         {title}
       </h2>
       {subtitle ? (
@@ -190,14 +185,19 @@ export function Counter({
 export function AmbientBlobs() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="animate-morph absolute -left-24 top-10 h-72 w-72 bg-lavender-soft/70 blur-3xl" />
       <div
-        className="animate-morph absolute -right-16 top-1/3 h-96 w-96 bg-lavender/30 blur-3xl"
-        style={{ animationDelay: "3s" }}
+        className="absolute inset-x-0 top-0 h-1/2 opacity-80"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(245, 232, 255, 0.95), rgba(255, 255, 255, 0.35) 48%, rgba(216, 180, 254, 0.38))",
+        }}
       />
       <div
-        className="animate-morph absolute bottom-0 left-1/3 h-72 w-72 bg-lavender-soft/60 blur-3xl"
-        style={{ animationDelay: "6s" }}
+        className="absolute inset-x-0 bottom-0 h-1/2 opacity-80"
+        style={{
+          background:
+            "linear-gradient(25deg, rgba(255, 255, 255, 0.88), rgba(244, 230, 255, 0.65) 60%, rgba(232, 245, 255, 0.5))",
+        }}
       />
     </div>
   );

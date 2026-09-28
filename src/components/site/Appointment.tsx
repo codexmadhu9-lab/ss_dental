@@ -25,7 +25,7 @@ const doctors = [
 ];
 
 const fieldClass =
-  "w-full rounded-2xl border border-accent bg-white/90 px-4 py-3 text-sm text-foreground outline-none transition-shadow placeholder:text-muted-foreground focus:ring-2 focus:ring-ring";
+  "w-full rounded-2xl border border-accent bg-white/95 px-4 py-3 text-sm text-foreground outline-none transition-shadow placeholder:text-muted-foreground focus:ring-2 focus:ring-ring";
 
 export function Appointment() {
   const [submitting, setSubmitting] = useState(false);
@@ -36,7 +36,7 @@ export function Appointment() {
   };
 
   return (
-    <section id="appointment" className="relative overflow-hidden py-24 sm:py-28">
+    <section id="appointment" className="lavender-band relative overflow-hidden py-24 sm:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <SectionHeading

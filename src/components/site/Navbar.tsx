@@ -11,6 +11,7 @@ const links = [
   { label: "Doctors", href: "/doctors" },
   { label: "Services", href: "/services" },
   { label: "Facilities", href: "/facilities" },
+  { label: "Blogs", href: "/blogs" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -36,7 +37,9 @@ export function Navbar() {
         <div
           className={cn(
             "flex items-center justify-between rounded-3xl px-4 py-3 transition-all duration-500 sm:px-6",
-            scrolled ? "glass-panel" : "border border-transparent bg-white/60 backdrop-blur-sm",
+            scrolled
+              ? "glass-panel"
+              : "border border-lavender/25 bg-white/90 shadow-soft backdrop-blur-sm",
           )}
         >
           <a href="/" className="flex items-center gap-3">
@@ -62,7 +65,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground"
+                className="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
               >
                 {link.label}
               </a>
@@ -103,7 +106,7 @@ export function Navbar() {
                     <a
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-2xl px-4 py-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary"
+                      className="block rounded-2xl px-4 py-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary hover:text-primary"
                     >
                       {link.label}
                     </a>

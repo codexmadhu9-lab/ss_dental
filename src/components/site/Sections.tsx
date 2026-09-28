@@ -2,6 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ActivitySquare,
   ArrowRight,
+  CalendarDays,
+  Clock,
   Heart,
   HeartPulse,
   IndianRupee,
@@ -14,12 +16,13 @@ import {
   ScanHeart,
   ShieldCheck,
   ShieldPlus,
+  Smile,
   Stethoscope,
   Syringe,
   Users,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import aboutImage from "@/assets/about.png";
 import aboutHero from "@/assets/about1.png";
@@ -36,7 +39,6 @@ import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
 import doctor4 from "@/assets/doctor-4.jpg";
-import facilityDiagnostics from "@/assets/facility-diagnostics.jpg";
 import generalDentistryTreatmentRoom from "@/assets/General Dentistry Treatment Room.jpg";
 import halitosis from "@/assets/halitosis.png";
 import kidsDentistry from "@/assets/kids-dentistry.png";
@@ -45,6 +47,7 @@ import rootCanalTreatment from "@/assets/root-canal-treatment.png";
 import teethWhitening from "@/assets/teeth-whitening.png";
 import teethWhiteningCosmeticDentistryUnit from "@/assets/Teeth Whitening & Cosmetic Dentistry Unit.jpg";
 import toothDecayDentalCavity from "@/assets/tooth-decay-dental-cavity.png";
+import { blogPosts, dentalTip, getRelatedBlogPosts, type BlogPost } from "@/data/blogs";
 
 import {
   AmbientBlobs,
@@ -208,63 +211,6 @@ const testimonials = [
   },
 ];
 
-const insights = [
-  {
-    tag: "Preventive Healthcare",
-    title: "Five screenings worth doing before you turn 40",
-    image: facilityDiagnostics,
-    content: [
-      "Preventive screening helps catch silent health changes before they become urgent. Blood pressure, blood sugar, lipid profile, dental checkups and basic imaging can reveal risks early enough for simple treatment plans.",
-      "The right schedule depends on age, symptoms, family history and lifestyle. A clinician can help decide what is needed now, what can wait, and how often each test should be repeated.",
-    ],
-  },
-  {
-    tag: "Healthy Lifestyle",
-    title: "Small daily habits that lower your blood pressure",
-    image: generalDentistryTreatmentRoom,
-    content: [
-      "Blood pressure improves most reliably with steady routines: brisk walking, reduced salt, good sleep, stress breaks and regular medication when prescribed. Small daily choices are easier to maintain than extreme short-term changes.",
-      "Home monitoring also helps. Bring your readings to appointments so your doctor can see patterns instead of relying on a single clinic measurement.",
-    ],
-  },
-  {
-    tag: "Women's Health",
-    title: "Understanding iron deficiency and everyday fatigue",
-    image: doctor3,
-    content: [
-      "Iron deficiency can show up as tiredness, dizziness, shortness of breath, headaches or hair fall. It is common, but it should still be checked because the cause matters as much as the low level itself.",
-      "A consultation may include blood tests, diet review and questions about menstrual health or digestion. Treatment can include food changes, supplements or further evaluation when needed.",
-    ],
-  },
-  {
-    tag: "Children's Health",
-    title: "A parent's guide to the childhood vaccine calendar",
-    image: kidsDentistry,
-    content: [
-      "Vaccines protect children from serious infections at the ages when they are most vulnerable. Keeping a clear calendar avoids missed doses and helps schools and doctors maintain accurate health records.",
-      "If a dose is delayed, parents usually do not need to restart the full schedule. A pediatrician can create a catch-up plan that fits the child's age and previous vaccines.",
-    ],
-  },
-  {
-    tag: "Heart Health",
-    title: "Warning signs of a heart attack people still ignore",
-    image: doctor1,
-    content: [
-      "Chest pressure is the classic warning sign, but heart attacks can also feel like breathlessness, sweating, jaw pain, arm discomfort, nausea or unusual fatigue. Symptoms may be subtle, especially in older adults and women.",
-      "Do not wait for pain to become severe. Fast medical attention protects heart muscle and improves recovery, so emergency care is the right choice when symptoms feel unusual or persistent.",
-    ],
-  },
-  {
-    tag: "Medical Awareness",
-    title: "When a fever actually needs a hospital visit",
-    image: digitalDentalImagingDiagnosticUnit,
-    content: [
-      "Most fevers improve with fluids, rest and guided medication, but some need prompt evaluation. Warning signs include breathing difficulty, confusion, persistent vomiting, severe dehydration, rash, seizures or fever in very young infants.",
-      "A hospital visit is also important when fever lasts several days, returns repeatedly, or appears in someone with chronic illness or weakened immunity.",
-    ],
-  },
-];
-
 const techLabels = [
   "Advanced Diagnostics",
   "Precision Treatment",
@@ -282,7 +228,7 @@ export function AboutHero() {
         height={900}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-foreground/60 via-foreground/25 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-lavender-deep/45 via-primary/18 to-white/18" />
       <div className="relative mx-auto flex h-full max-w-7xl items-center px-4">
         <Reveal>
           <div className="max-w-2xl text-white">
@@ -305,7 +251,7 @@ export function AboutHero() {
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden py-28 sm:py-32">
+    <section id="about" className="lavender-band relative overflow-hidden py-28 sm:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 lg:grid-cols-2">
         <Reveal>
           <div className="relative">
@@ -346,7 +292,7 @@ export function About() {
                 { value: 120, suffix: "+", label: "Specialists" },
                 { value: 450000, suffix: "+", label: "Patients served" },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-3xl border border-accent bg-white/70 p-5">
+                <div key={stat.label} className="lavender-card rounded-3xl p-5">
                   <dt className="font-display text-2xl text-secondary-foreground">
                     <Counter to={stat.value} suffix={stat.suffix} />
                   </dt>
@@ -363,7 +309,7 @@ export function About() {
 
 export function Doctors() {
   return (
-    <section id="doctors" className="py-24 sm:py-28">
+    <section id="doctors" className="relative overflow-hidden bg-white py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeading
           eyebrow="Our Specialists"
@@ -373,7 +319,7 @@ export function Doctors() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {doctors.map((doctor, index) => (
             <Reveal key={doctor.name} delay={index * 0.08}>
-              <article className="lift-card group h-full overflow-hidden rounded-[2rem] border border-accent bg-white">
+              <article className="lift-card lavender-card group h-full overflow-hidden rounded-[2rem]">
                 <div className="overflow-hidden">
                   <img
                     src={doctor.image}
@@ -419,7 +365,7 @@ export function Doctors() {
 
 export function Services() {
   return (
-    <section id="services" className="soft-canvas relative overflow-hidden py-24 sm:py-28">
+    <section id="services" className="lavender-band relative overflow-hidden py-24 sm:py-28">
       <div className="relative mx-auto max-w-7xl px-4">
         <SectionHeading
           eyebrow="Services"
@@ -429,7 +375,7 @@ export function Services() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Reveal key={service.name} delay={(index % 5) * 0.06}>
-              <article className="lift-card group h-full overflow-hidden rounded-3xl border border-accent bg-white/90">
+              <article className="lift-card lavender-card group h-full overflow-hidden rounded-3xl">
                 <div className="overflow-hidden">
                   <img
                     src={service.image}
@@ -463,14 +409,14 @@ export function Services() {
 
 export function WhyChoose() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-28">
+    <section className="relative overflow-hidden bg-white py-24 sm:py-28">
       <AmbientBlobs />
       <div className="relative mx-auto max-w-7xl px-4">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {quickFeatures.map((feature, index) => (
             <Reveal key={feature.title} delay={index * 0.08}>
-              <div className="lift-card glass-panel h-full rounded-3xl p-6 shadow-lift">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary">
+              <div className="lift-card lavender-card h-full rounded-3xl p-6">
+                <span className="brand-gradient flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-soft">
                   <feature.icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-lg text-secondary-foreground">{feature.title}</h3>
@@ -486,8 +432,8 @@ export function WhyChoose() {
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
             <Reveal key={benefit.title} delay={(index % 3) * 0.08}>
-              <div className="lift-card glass-panel flex h-full gap-4 rounded-3xl p-6">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-secondary text-primary">
+              <div className="lift-card lavender-card flex h-full gap-4 rounded-3xl p-6">
+                <span className="brand-gradient flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white shadow-soft">
                   <benefit.icon className="h-6 w-6" />
                 </span>
                 <div>
@@ -509,16 +455,16 @@ export function BeforeAfterTreatment() {
   const [position, setPosition] = useState(50);
 
   return (
-    <section className="bg-white py-24 sm:py-28">
+    <section className="lavender-band py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-teal-700">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             Smile Results
           </p>
-          <h2 className="mt-3 font-display text-3xl text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl text-foreground sm:text-4xl">
             Before & After Treatment
           </h2>
-          <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
+          <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
             Drag to compare the treatment result. Move right to reveal more of the before photo, or
             left to reveal more of the after photo.
           </p>
@@ -526,7 +472,7 @@ export function BeforeAfterTreatment() {
 
         <Reveal delay={0.1}>
           <div className="mx-auto mt-12 max-w-4xl">
-            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lift">
+            <div className="lavender-card relative overflow-hidden rounded-3xl shadow-lift">
               <div className="relative aspect-[4/3] w-full select-none sm:aspect-[16/9]">
                 <img
                   src={afterTreatment}
@@ -551,10 +497,10 @@ export function BeforeAfterTreatment() {
                   />
                 </div>
 
-                <span className="absolute left-4 top-4 rounded-full bg-slate-950/75 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white">
+                <span className="absolute left-4 top-4 rounded-full bg-foreground/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white">
                   Before
                 </span>
-                <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900">
+                <span className="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
                   After
                 </span>
 
@@ -565,7 +511,7 @@ export function BeforeAfterTreatment() {
                 />
                 <div
                   aria-hidden
-                  className="absolute top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white bg-teal-700 text-white shadow-lift"
+                  className="brand-gradient absolute top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white text-white shadow-lift"
                   style={{ left: `${position}%` }}
                 >
                   <span className="text-sm font-bold leading-none">&lt;&gt;</span>
@@ -582,9 +528,9 @@ export function BeforeAfterTreatment() {
               </div>
             </div>
 
-            <div className="mt-7 rounded-3xl border border-slate-200 bg-slate-50 p-6 text-center">
-              <h3 className="font-display text-2xl text-slate-900">Smile Whitening Treatment</h3>
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
+            <div className="lavender-card mt-7 rounded-3xl p-6 text-center">
+              <h3 className="font-display text-2xl text-foreground">Smile Whitening Treatment</h3>
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
                 A visual comparison of the same patient before and after treatment, shown with
                 consistent sizing for an accurate view of the result. Images should be used only
                 with patient consent and without edits that misrepresent outcomes.
@@ -599,7 +545,7 @@ export function BeforeAfterTreatment() {
 
 export function TechExperience() {
   return (
-    <section className="soft-canvas relative overflow-hidden py-24 sm:py-32">
+    <section className="lavender-band relative overflow-hidden py-24 sm:py-32">
       <AmbientBlobs />
       <div className="relative mx-auto max-w-6xl px-4 text-center">
         <SectionHeading
@@ -649,7 +595,7 @@ export function TechExperience() {
 
 export function Facilities() {
   return (
-    <section id="facilities" className="py-24 sm:py-28">
+    <section id="facilities" className="bg-white py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeading
           eyebrow="Facilities"
@@ -668,7 +614,7 @@ export function Facilities() {
                   loading="lazy"
                   className="h-72 w-full object-cover transition-transform duration-[900ms] group-hover:scale-110"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6 font-display text-xl text-white">
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/55 to-transparent p-6 font-display text-xl text-white">
                   {facility.name}
                 </figcaption>
               </figure>
@@ -680,7 +626,7 @@ export function Facilities() {
             {["Pharmacy", "Waiting Lounge", "Emergency Department"].map((item) => (
               <div
                 key={item}
-                className="lift-card rounded-3xl border border-accent bg-white/80 px-6 py-8 text-center font-display text-lg text-secondary-foreground"
+                className="lift-card lavender-card rounded-3xl px-6 py-8 text-center font-display text-lg text-secondary-foreground"
               >
                 {item}
               </div>
@@ -697,7 +643,7 @@ export function Testimonials() {
   const active = testimonials[index]!;
 
   return (
-    <section className="soft-canvas relative overflow-hidden py-24 sm:py-28">
+    <section className="lavender-band relative overflow-hidden py-24 sm:py-28">
       <AmbientBlobs />
       <div className="relative mx-auto max-w-4xl px-4">
         <SectionHeading eyebrow="Patient Stories" title="Care Remembered By Families" />
@@ -741,41 +687,80 @@ export function Testimonials() {
 }
 
 export function Insights() {
-  const [activePost, setActivePost] = useState<(typeof insights)[number] | null>(null);
+  const [activePost, setActivePost] = useState<BlogPost | null>(null);
+
+  useEffect(() => {
+    if (!activePost) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActivePost(null);
+    };
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activePost]);
 
   return (
     <section className="py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeading
-          eyebrow="Health Insights"
-          title="Latest Health Updates"
-          subtitle="Practical guidance written by our clinical teams."
+          eyebrow="Our Blogs"
+          title="Dental Insights For Healthier Smiles"
+          subtitle="Helpful dental advice, treatment guidance, oral-health tips, and expert insights from our dental care team."
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {insights.map((post, i) => (
+          {blogPosts.map((post, i) => (
             <Reveal key={post.title} delay={(i % 3) * 0.08}>
-              <article className="lift-card flex h-full flex-col overflow-hidden rounded-3xl border border-accent bg-white/85">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  width={900}
-                  height={620}
-                  loading="lazy"
-                  className="h-48 w-full object-cover"
-                />
+              <article className="lift-card lavender-card flex h-full flex-col overflow-hidden rounded-3xl">
+                <button
+                  type="button"
+                  onClick={() => setActivePost(post)}
+                  className="group block overflow-hidden text-left"
+                  aria-label={`Read ${post.title}`}
+                >
+                  <img
+                    src={post.image}
+                    alt={post.imageAlt}
+                    width={900}
+                    height={620}
+                    loading="lazy"
+                    className="h-48 w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                  />
+                </button>
                 <div className="flex flex-1 flex-col p-7">
-                  <span className="w-fit rounded-full bg-secondary px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-secondary-foreground">
-                    {post.tag}
-                  </span>
-                  <h3 className="mt-5 flex-1 text-lg leading-snug text-secondary-foreground">
-                    {post.title}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="w-fit rounded-full bg-secondary px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-secondary-foreground">
+                      {post.category}
+                    </span>
+                    <span className="text-xs font-medium text-muted-foreground">
+                      {post.readTime}
+                    </span>
+                  </div>
+                  <h3 className="mt-5 text-lg leading-snug text-secondary-foreground">
+                    <button
+                      type="button"
+                      onClick={() => setActivePost(post)}
+                      className="text-left transition-colors hover:text-primary"
+                    >
+                      {post.title}
+                    </button>
                   </h3>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">
+                    {post.excerpt}
+                  </p>
                   <button
                     type="button"
                     onClick={() => setActivePost(post)}
-                    className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary"
+                    className="group mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary"
                   >
-                    Read more <ArrowRight className="h-4 w-4" />
+                    Read More{" "}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
                   </button>
                 </div>
               </article>
@@ -786,60 +771,189 @@ export function Insights() {
 
       <AnimatePresence>
         {activePost ? (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/55 px-4 py-8 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="insight-dialog-title"
-            onClick={() => setActivePost(null)}
-          >
-            <motion.article
-              className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2rem] bg-white shadow-lift"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 24, scale: 0.98 }}
-              transition={{ duration: 0.22 }}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <button
-                type="button"
-                aria-label="Close article"
-                onClick={() => setActivePost(null)}
-                className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-secondary-foreground shadow-soft backdrop-blur-sm transition-colors hover:bg-secondary"
-              >
-                <X className="h-5 w-5" />
-              </button>
-              <img
-                src={activePost.image}
-                alt={activePost.title}
-                width={1200}
-                height={760}
-                className="h-64 w-full object-cover sm:h-80"
-              />
-              <div className="p-7 sm:p-9">
-                <span className="w-fit rounded-full bg-secondary px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-secondary-foreground">
-                  {activePost.tag}
-                </span>
-                <h3
-                  id="insight-dialog-title"
-                  className="mt-5 font-display text-2xl leading-tight text-secondary-foreground sm:text-3xl"
-                >
-                  {activePost.title}
-                </h3>
-                <div className="mt-6 space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">
-                  {activePost.content.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            </motion.article>
-          </motion.div>
+          <BlogPostModal
+            post={activePost}
+            onClose={() => setActivePost(null)}
+            onSelectPost={setActivePost}
+          />
         ) : null}
       </AnimatePresence>
     </section>
+  );
+}
+
+function BlogPostModal({
+  post,
+  onClose,
+  onSelectPost,
+}: {
+  post: BlogPost;
+  onClose: () => void;
+  onSelectPost: (post: BlogPost) => void;
+}) {
+  const relatedPosts = getRelatedBlogPosts(post.slug);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-foreground/60 px-3 py-6 backdrop-blur-sm sm:px-5"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="blog-modal-title"
+      onClick={onClose}
+    >
+      <motion.article
+        className="relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-[1.5rem] bg-white shadow-lift sm:rounded-[2rem]"
+        initial={{ opacity: 0, y: 28, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 28, scale: 0.97 }}
+        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <button
+          type="button"
+          aria-label="Close blog article"
+          onClick={onClose}
+          className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-secondary-foreground shadow-soft backdrop-blur-sm transition-colors hover:bg-secondary"
+        >
+          <X className="h-5 w-5" />
+        </button>
+
+        <img
+          src={post.image}
+          alt={post.imageAlt}
+          width={1280}
+          height={720}
+          className="h-60 w-full object-cover sm:h-80"
+        />
+
+        <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-10">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="w-fit rounded-full bg-secondary px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-secondary-foreground">
+              {post.category}
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+              <Clock className="h-4 w-4 text-primary" />
+              {post.readTime}
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+              <CalendarDays className="h-4 w-4 text-primary" />
+              {post.publishedDate}
+            </span>
+          </div>
+
+          <h2
+            id="blog-modal-title"
+            className="brand-gradient-text mt-5 text-3xl leading-tight sm:text-4xl"
+          >
+            {post.title}
+          </h2>
+
+          <div className="mt-7 space-y-4 text-base leading-8 text-muted-foreground">
+            {post.introduction.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <div className="mt-10 space-y-9">
+            {post.sections.map((section) => (
+              <section key={section.title}>
+                <h3 className="text-xl leading-tight text-secondary-foreground">{section.title}</h3>
+                {section.paragraphs ? (
+                  <div className="mt-3 space-y-3 text-sm leading-7 text-muted-foreground sm:text-base">
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                ) : null}
+                {section.bullets ? (
+                  <ul className="mt-4 grid gap-2.5 text-sm leading-7 text-muted-foreground sm:text-base">
+                    {section.bullets.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </section>
+            ))}
+          </div>
+
+          <aside className="mt-10 rounded-[1.25rem] bg-cyan-50 p-5 text-slate-900 shadow-soft sm:p-6">
+            <div className="flex gap-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                <Smile className="h-6 w-6" />
+              </span>
+              <div>
+                <h3 className="text-lg text-slate-950">Dental Tip</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-700">{dentalTip}</p>
+              </div>
+            </div>
+          </aside>
+
+          <section className="mt-10">
+            <h3 className="text-xl leading-tight text-secondary-foreground">Conclusion</h3>
+            <div className="mt-3 space-y-3 text-sm leading-7 text-muted-foreground sm:text-base">
+              {post.conclusion.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
+
+          <section className="brand-gradient mt-10 rounded-[1.5rem] p-6 text-white shadow-lift sm:p-8">
+            <h3 className="text-2xl leading-tight text-white">{post.ctaTitle}</h3>
+            <p className="mt-3 text-sm leading-7 text-white/90">
+              Whether you need a routine checkup or advanced dental treatment, our dental care team
+              is here to help.
+            </p>
+            <a
+              href="/contact#appointment"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-primary shadow-soft transition-transform hover:scale-[1.02]"
+            >
+              {post.ctaButton}
+            </a>
+          </section>
+
+          <section className="mt-10">
+            <h3 className="text-2xl text-secondary-foreground">You May Also Like</h3>
+            <div className="mt-5 grid gap-4 sm:grid-cols-3">
+              {relatedPosts.map((relatedPost) => (
+                <button
+                  key={relatedPost.slug}
+                  type="button"
+                  onClick={() => onSelectPost(relatedPost)}
+                  className="group overflow-hidden rounded-3xl border border-border bg-white text-left shadow-soft transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <img
+                    src={relatedPost.image}
+                    alt={relatedPost.imageAlt}
+                    width={480}
+                    height={320}
+                    loading="lazy"
+                    className="h-28 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                  <div className="p-4">
+                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-primary">
+                      {relatedPost.category}
+                    </span>
+                    <h4 className="mt-2 text-sm leading-snug text-secondary-foreground">
+                      {relatedPost.title}
+                    </h4>
+                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                      Read More{" "}
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+        </div>
+      </motion.article>
+    </motion.div>
   );
 }
 
