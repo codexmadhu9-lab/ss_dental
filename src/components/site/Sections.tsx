@@ -28,25 +28,25 @@ import aboutImage from "@/assets/about.png";
 import aboutHero from "@/assets/about1.png";
 import afterTreatment from "@/assets/after.png";
 import beforeTreatment from "@/assets/before.png";
-import braces from "@/assets/braces.png";
-import clearAligners from "@/assets/clear-aligners.png";
-import dentalCrown from "@/assets/dental-crown.png";
-import dentalImplants from "@/assets/dental-implants.png";
+import badBreathCare from "@/assets/bad breath care.jpg";
+import braces from "@/assets/braces.jpg";
+import cavityTreatment from "@/assets/cavity tratment.jpg";
+import clearAligners from "@/assets/clear aligners.jpg";
+import dentalCrown from "@/assets/dental crowns.jpg";
+import dentalImplants from "@/assets/dental implants.jpg";
 import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
 import doctor4 from "@/assets/doctor-4.jpg";
-import halitosis from "@/assets/halitosis.png";
-import infrastructure1 from "@/assets/i1.png";
-import infrastructure2 from "@/assets/i2.png";
-import infrastructure3 from "@/assets/i3.png";
-import infrastructure4 from "@/assets/i4.png";
-import infrastructure5 from "@/assets/i5.png";
-import infrastructure6 from "@/assets/i6.png";
-import kidsDentistry from "@/assets/kids-dentistry.png";
-import rootCanalTreatment from "@/assets/root-canal-treatment.png";
-import teethWhitening from "@/assets/teeth-whitening.png";
-import toothDecayDentalCavity from "@/assets/tooth-decay-dental-cavity.png";
+import infrastructure1 from "@/assets/i1.jpg";
+import infrastructure2 from "@/assets/i2.jpg";
+import infrastructure3 from "@/assets/i3.jpg";
+import infrastructure4 from "@/assets/i4.jpg";
+import infrastructure5 from "@/assets/i5.jpg";
+import infrastructure6 from "@/assets/i6.jpg";
+import kidsDentistry from "@/assets/kids densitry.jpg";
+import rootCanalTreatment from "@/assets/root.jpg";
+import teethWhitening from "@/assets/teeth whitening.jpg";
 import { blogPosts, dentalTip, getRelatedBlogPosts, type BlogPost } from "@/data/blogs";
 
 import {
@@ -95,46 +95,55 @@ const doctors = [
 
 const services = [
   {
+    icon: ShieldCheck,
     image: dentalCrown,
     name: "Dental Crowns",
     text: "Natural-looking caps that restore strength, shape and bite comfort.",
   },
   {
+    icon: Syringe,
     image: rootCanalTreatment,
     name: "Root Canal Treatment",
     text: "Precise infection removal that helps save painful or damaged teeth.",
   },
   {
+    icon: ShieldPlus,
     image: dentalImplants,
     name: "Dental Implants",
     text: "Stable tooth replacement planned for long-term function and aesthetics.",
   },
   {
+    icon: ActivitySquare,
     image: braces,
     name: "Braces",
     text: "Guided teeth alignment for healthier bites and confident smiles.",
   },
   {
+    icon: Smile,
     image: clearAligners,
     name: "Clear Aligners",
     text: "Removable transparent trays designed for discreet smile correction.",
   },
   {
+    icon: HeartPulse,
     image: teethWhitening,
     name: "Teeth Whitening",
     text: "Professional whitening for brighter teeth with controlled sensitivity.",
   },
   {
-    image: toothDecayDentalCavity,
+    icon: Microscope,
+    image: cavityTreatment,
     name: "Cavity Treatment",
     text: "Early decay care and tooth-colored fillings to protect your tooth.",
   },
   {
-    image: halitosis,
+    icon: Heart,
+    image: badBreathCare,
     name: "Bad Breath Care",
     text: "Diagnosis-led treatment for lasting freshness and better oral health.",
   },
   {
+    icon: Users,
     image: kidsDentistry,
     name: "Kids Dentistry",
     text: "Gentle preventive and restorative care for growing smiles.",
@@ -182,15 +191,78 @@ const benefits = [
 ];
 
 const facilities = [
-  { name: "Advanced Dental Treatment Operatory", image: infrastructure1 },
+  {
+    name: "Advanced Dental Treatment Operatory",
+    image: infrastructure1,
+    icon: Stethoscope,
+    description: "A calm operatory designed for precise dental procedures and comfortable care.",
+  },
   {
     name: "Teeth Whitening & Cosmetic Dentistry Unit",
     image: infrastructure2,
+    icon: Smile,
+    description: "Bright, refined spaces for aesthetic dentistry and professional whitening.",
   },
-  { name: "General Dentistry Treatment Room", image: infrastructure3 },
-  { name: "Digital Dental Imaging & Diagnostic Unit", image: infrastructure4 },
-  { name: "Oral Surgery & Procedure Suite", image: infrastructure5 },
-  { name: "Dental Implant Treatment Unit", image: infrastructure6 },
+  {
+    name: "General Dentistry Treatment Room",
+    image: infrastructure3,
+    icon: HeartPulse,
+    description: "Everyday dental care delivered in a clean, patient-friendly treatment room.",
+  },
+  {
+    name: "Digital Dental Imaging & Diagnostic Unit",
+    image: infrastructure4,
+    icon: MonitorSmartphone,
+    description: "Digital imaging support for faster assessment and confident treatment planning.",
+  },
+  {
+    name: "Oral Surgery & Procedure Suite",
+    image: infrastructure5,
+    icon: ShieldPlus,
+    description: "A focused procedure suite built around safety, hygiene and surgical precision.",
+  },
+  {
+    name: "Dental Implant Treatment Unit",
+    image: infrastructure6,
+    icon: ActivitySquare,
+    description: "Dedicated implant care spaces for stable, planned and long-term restorations.",
+  },
+];
+
+const facilityHighlights = [
+  {
+    icon: MonitorSmartphone,
+    title: "Advanced Technology",
+    text: "Digital systems and modern equipment help our team plan treatment with clarity.",
+  },
+  {
+    icon: Heart,
+    title: "Patient-Centric Design",
+    text: "Quiet, accessible rooms are planned to make every visit feel easier and calmer.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Highest Safety Standards",
+    text: "Infection-control workflows and clean clinical zones support confident care.",
+  },
+];
+
+const supportFacilities = [
+  {
+    icon: Microscope,
+    name: "Pharmacy",
+    text: "Convenient support for prescribed dental care essentials after consultation.",
+  },
+  {
+    icon: Users,
+    name: "Waiting Lounge",
+    text: "Comfortable seating and a calm environment for patients and family members.",
+  },
+  {
+    icon: Phone,
+    name: "Emergency Department",
+    text: "Prompt assistance for urgent dental pain, swelling, injury and treatment needs.",
+  },
 ];
 
 const testimonials = [
@@ -365,37 +437,75 @@ export function Doctors() {
 
 export function Services() {
   return (
-    <section id="services" className="lavender-band relative overflow-hidden py-24 sm:py-28">
+    <section id="services" className="relative overflow-hidden bg-[#fbf7ff] py-24 sm:py-28">
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(216,180,254,0.48),transparent_30%),radial-gradient(circle_at_92%_12%,rgba(192,132,252,0.28),transparent_28%),linear-gradient(180deg,#ffffff_0%,#fbf7ff_48%,#f4e9ff_100%)]"
+      />
+      <div
+        aria-hidden
+        className="absolute left-0 top-20 h-72 w-48 rounded-r-full bg-white/55 blur-2xl"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-16 right-0 h-80 w-56 rounded-l-full bg-lavender-soft/70 blur-2xl"
+      />
+
       <div className="relative mx-auto max-w-7xl px-4">
-        <SectionHeading
-          eyebrow="Services"
-          title="Everything Your Treatment Needs"
-          subtitle="Diagnostics, pharmacy, surgery and emergency response, coordinated within one hospital."
-        />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal>
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.52fr]">
+            <div className="text-center">
+              <span className="inline-flex rounded-full border border-primary/20 bg-white/80 px-8 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary shadow-soft">
+                Services
+              </span>
+              <h2 className="mt-5 text-4xl leading-tight text-secondary-foreground sm:text-5xl">
+                Everything Your <span className="brand-gradient-text">Treatment Needs</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
+                Advanced dental care, precise diagnostics and thoughtful treatment planning for
+                healthier smiles at every stage.
+              </p>
+              <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-primary" />
+            </div>
+
+            <div className="justify-self-center text-center lg:justify-self-end lg:text-right">
+              <p className="text-3xl leading-tight text-secondary-foreground sm:text-4xl">
+                <span className="brand-gradient-text">Your Smile,</span>
+                <span className="block">Our Priority</span>
+              </p>
+              <div className="ml-auto mt-4 h-px w-36 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Reveal key={service.name} delay={(index % 5) * 0.06}>
-              <article className="lift-card lavender-card group h-full overflow-hidden rounded-3xl">
-                <div className="overflow-hidden">
+              <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-white/80 bg-white/90 shadow-soft backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+                <div className="relative overflow-hidden border-b border-lavender-soft/80">
                   <img
                     src={service.image}
                     alt={`${service.name} at SS Dental Hospital`}
                     width={720}
                     height={960}
                     loading="lazy"
-                    className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  <span className="absolute bottom-4 left-4 flex h-14 w-14 items-center justify-center rounded-lg border border-white/70 bg-white text-primary shadow-soft">
+                    <service.icon className="h-7 w-7" />
+                  </span>
                 </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-lg text-secondary-foreground">{service.name}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                <div className="flex flex-1 flex-col bg-gradient-to-br from-white via-white to-lavender-soft/45 p-6">
+                  <h3 className="text-xl text-secondary-foreground">{service.name}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">
                     {service.text}
                   </p>
                   <a
                     href="#appointment"
-                    className="brand-gradient mt-5 inline-flex items-center justify-center rounded-full px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-soft transition-transform hover:scale-[1.02]"
+                    className="mt-6 inline-flex items-center justify-between gap-3 rounded-lg border border-[#c084fc]/70 bg-[#b45cff] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_34px_-18px_rgba(126,34,206,0.75)] transition-colors hover:border-[#a855f7] hover:bg-[#9b35ff]"
                   >
-                    Book Appointment
+                    <span>Book Appointment</span>
+                    <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
               </article>
@@ -595,41 +705,122 @@ export function TechExperience() {
 
 export function Facilities() {
   return (
-    <section id="facilities" className="bg-white py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4">
-        <SectionHeading
-          eyebrow="Facilities"
-          title="Infrastructure Built Around Comfort"
-          subtitle="Patient rooms, critical care, theatres and diagnostics designed to feel calm and be clinically exact."
+    <section
+      id="facilities"
+      className="relative overflow-hidden bg-[#fbf7ff] pb-24 pt-16 sm:pb-28 sm:pt-20"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(circle_at_12%_7%,rgba(216,180,254,0.56),transparent_29%),radial-gradient(circle_at_88%_2%,rgba(192,132,252,0.24),transparent_28%),linear-gradient(180deg,#ffffff_0%,#fbf7ff_44%,#f4e9ff_100%)]"
+      />
+      <div
+        aria-hidden
+        className="absolute left-[-5rem] top-20 h-72 w-72 rounded-full bg-white/70 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute right-[-6rem] top-12 h-80 w-80 rounded-full bg-lavender-soft/75 blur-3xl"
+      />
+      <svg
+        aria-hidden
+        viewBox="0 0 120 120"
+        className="absolute right-[8%] top-24 hidden h-24 w-24 text-primary/20 lg:block"
+      >
+        <path
+          d="M59 18c-12-10-35-7-41 12-5 16 6 29 10 44 3 12 3 28 13 29 9 1 10-18 19-18s10 19 19 18c10-1 10-17 13-29 4-15 15-28 10-44-6-19-29-22-43-12z"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="5"
         />
-        <div id="gallery" className="mt-14 grid gap-5 md:grid-cols-2">
+      </svg>
+      <div aria-hidden className="absolute left-[7%] top-32 hidden rotate-[-18deg] lg:block">
+        <span className="block h-14 w-7 rounded-full rounded-br-none bg-lavender/25" />
+        <span className="-mt-3 ml-7 block h-12 w-6 rotate-45 rounded-full rounded-bl-none bg-primary/15" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4">
+        <Reveal>
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="inline-flex rounded-full border border-primary/20 bg-white/85 px-8 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary shadow-soft">
+              Facilities
+            </span>
+            <h1 className="mt-6 text-4xl leading-tight text-secondary-foreground sm:text-5xl lg:text-6xl">
+              Infrastructure Built Around{" "}
+              <span className="brand-gradient-text">Comfort</span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+              Patient rooms, treatment suites and diagnostic spaces designed to feel calm,
+              polished and clinically exact.
+            </p>
+            <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-primary" />
+          </div>
+        </Reveal>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {facilityHighlights.map((highlight, index) => (
+            <Reveal key={highlight.title} delay={index * 0.08}>
+              <article className="h-full rounded-[1.5rem] border border-white/80 bg-white/82 p-6 text-center shadow-soft backdrop-blur">
+                <span className="brand-gradient mx-auto flex h-16 w-16 items-center justify-center rounded-full text-white shadow-soft">
+                  <highlight.icon className="h-7 w-7" />
+                </span>
+                <h2 className="mt-5 text-xl text-secondary-foreground">{highlight.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{highlight.text}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <div id="gallery" className="mt-16 grid gap-7 md:grid-cols-2">
           {facilities.map((facility, index) => (
             <Reveal key={facility.name} delay={(index % 2) * 0.1}>
-              <figure className="group relative overflow-hidden rounded-[2rem] shadow-soft">
+              <figure className="group relative overflow-hidden rounded-[2rem] border border-white/75 bg-white shadow-lift">
                 <img
                   src={facility.image}
                   alt={`${facility.name} at SS Dental Hospital`}
                   width={1024}
                   height={768}
                   loading="lazy"
-                  className="h-72 w-full object-cover transition-transform duration-[900ms] group-hover:scale-110"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.04]"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/55 to-transparent p-6 font-display text-xl text-white">
-                  {facility.name}
+                <figcaption className="absolute inset-x-4 bottom-4 rounded-[1.35rem] border border-white/70 bg-white/88 p-4 text-secondary-foreground shadow-soft backdrop-blur-md sm:inset-x-5 sm:bottom-5 sm:p-5">
+                  <div className="flex items-center gap-4">
+                    <span className="brand-gradient flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white shadow-soft">
+                      <facility.icon className="h-5 w-5" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <h2 className="text-lg leading-tight sm:text-xl">{facility.name}</h2>
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">
+                        {facility.description}
+                      </p>
+                    </div>
+                    <a
+                      href="/contact#appointment"
+                      aria-label={`Book an appointment for ${facility.name}`}
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-soft transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    >
+                      <ArrowRight className="h-5 w-5" />
+                    </a>
+                  </div>
                 </figcaption>
               </figure>
             </Reveal>
           ))}
         </div>
         <Reveal delay={0.1}>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            {["Pharmacy", "Waiting Lounge", "Emergency Department"].map((item) => (
-              <div
-                key={item}
-                className="lift-card lavender-card rounded-3xl px-6 py-8 text-center font-display text-lg text-secondary-foreground"
+          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            {supportFacilities.map((item) => (
+              <article
+                key={item.name}
+                className="lift-card rounded-[1.5rem] border border-white/80 bg-white/86 p-7 text-center shadow-soft backdrop-blur"
               >
-                {item}
-              </div>
+                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lavender-soft text-primary shadow-soft">
+                  <item.icon className="h-6 w-6" />
+                </span>
+                <h2 className="mt-5 text-xl text-secondary-foreground">{item.name}</h2>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.text}</p>
+              </article>
             ))}
           </div>
         </Reveal>

@@ -1,7 +1,7 @@
-import blog2Image from "@/assets/blog2.png";
-import blog3Image from "@/assets/blog3.png";
-import blog4Image from "@/assets/blog4.png";
-import blog5Image from "@/assets/blog5.png";
+import blog2Image from "@/assets/blog2.jpg";
+import blog3Image from "@/assets/blog3.jpg";
+import blog4Image from "@/assets/blog4.jpg";
+import blog5Image from "@/assets/blog5.jpg";
 import blog1Image from "@/blog1.png";
 import blog6Image from "@/blog6.png";
 

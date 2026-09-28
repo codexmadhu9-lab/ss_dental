@@ -2,8 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CalendarHeart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import home2 from "@/assets/home2.png";
-import home3 from "@/assets/home3.png";
+import home2 from "@/assets/home2.jpg";
+import home3 from "@/assets/home3.jpg";
+import home4 from "@/assets/home4.jpg";
 
 import { MagneticButton, Reveal } from "./primitives";
 
@@ -23,6 +24,11 @@ const heroSlides = [
   {
     image: home3,
     alt: "Dentist explaining oral care to a patient in a lavender dental clinic",
+    overlay: "from-foreground/48 via-foreground/12 to-white/10",
+  },
+  {
+    image: home4,
+    alt: "Modern SS Dental Hospital treatment room prepared for patient care",
     overlay: "from-foreground/48 via-foreground/12 to-white/10",
   },
 ];

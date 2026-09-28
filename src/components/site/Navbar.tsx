@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarHeart, Menu, X } from "lucide-react";
+import { useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import logo from "@/assets/logo ss.png";
@@ -16,8 +17,12 @@ const links = [
 ];
 
 export function Navbar() {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const isActive = (href: string) =>
+    href === "/" ? location.pathname === href : location.pathname.startsWith(href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -36,13 +41,16 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4">
         <div
           className={cn(
-            "flex items-center justify-between rounded-3xl px-4 py-3 transition-all duration-500 sm:px-6",
+            "flex items-center justify-between rounded-[2rem] px-4 py-3 transition-all duration-500 sm:px-7",
             scrolled
               ? "glass-panel"
-              : "rounded-t-none border border-lavender/25 bg-white/90 shadow-soft backdrop-blur-sm",
+              : "rounded-t-none border border-lavender/20 bg-white/95 shadow-[0_18px_60px_-38px_rgba(91,33,182,0.45)] backdrop-blur-sm",
           )}
         >
-          <a href="/" className="flex items-center gap-3">
+          <a
+            href="/"
+            className="flex items-center gap-3 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          >
             <img
               src={logo}
               alt="SS Dental Hospital logo"
@@ -65,7 +73,13 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={cn(
+                  "rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                  isActive(link.href)
+                    ? "bg-lavender-soft text-primary shadow-soft"
+                    : "text-muted-foreground hover:bg-secondary hover:text-primary",
+                )}
               >
                 {link.label}
               </a>
@@ -75,7 +89,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <a
               href="/contact#appointment"
-              className="brand-gradient hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03] lg:inline-flex"
+              className="brand-gradient hidden items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex"
             >
               <CalendarHeart className="h-4 w-4" />
               Book an Appointment
@@ -84,7 +98,7 @@ export function Navbar() {
               type="button"
               aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent text-secondary-foreground xl:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent text-secondary-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary xl:hidden"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -106,7 +120,13 @@ export function Navbar() {
                     <a
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-2xl px-4 py-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary hover:text-primary"
+                      aria-current={isActive(link.href) ? "page" : undefined}
+                      className={cn(
+                        "block rounded-2xl px-4 py-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                        isActive(link.href)
+                          ? "bg-lavender-soft text-primary"
+                          : "text-secondary-foreground hover:bg-secondary hover:text-primary",
+                      )}
                     >
                       {link.label}
                     </a>
@@ -116,7 +136,7 @@ export function Navbar() {
               <a
                 href="/contact#appointment"
                 onClick={() => setOpen(false)}
-                className="brand-gradient mt-3 flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-primary-foreground"
+                className="brand-gradient mt-3 flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-primary-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 <CalendarHeart className="h-4 w-4" />
                 Book an Appointment
