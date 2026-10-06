@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Appointment } from "@/components/site/Appointment";
 import { Footer } from "@/components/site/Footer";
 import { Hero } from "@/components/site/Hero";
 import { Navbar } from "@/components/site/Navbar";
@@ -26,7 +25,6 @@ function Index() {
       <WhyChoose />
       <BeforeAfterTreatment />
       <Facilities />
-      <Appointment />
       <EmergencyCTA />
       <Footer />
     </main>

@@ -1,4 +1,5 @@
 import { CalendarHeart } from "lucide-react";
+import { useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -33,7 +34,10 @@ type AppointmentProps = {
 };
 
 export function Appointment({ imageSrc, imageAlt = "SS Dental Hospital care team" }: AppointmentProps) {
+  const location = useLocation();
   const [submitting, setSubmitting] = useState(false);
+  const selectedDoctor = new URL(location.href, "https://ss-dental.local").searchParams.get("doctor");
+  const initialDoctor = selectedDoctor && doctors.includes(selectedDoctor) ? selectedDoctor : "";
 
   const getValue = (formData: FormData, field: string) => {
     const value = formData.get(field);
@@ -155,7 +159,13 @@ export function Appointment({ imageSrc, imageAlt = "SS Dental Hospital care team
                 <label htmlFor="doctor" className="mb-2 block text-sm font-medium">
                   Doctor
                 </label>
-                <select id="doctor" name="doctor" className={fieldClass} defaultValue="">
+                <select
+                  key={initialDoctor}
+                  id="doctor"
+                  name="doctor"
+                  className={fieldClass}
+                  defaultValue={initialDoctor}
+                >
                   <option value="" disabled>
                     Select doctor
                   </option>

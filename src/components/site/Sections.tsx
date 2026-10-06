@@ -39,12 +39,12 @@ import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
 import doctor4 from "@/assets/doctor-4.jpg";
-import infrastructure1 from "@/assets/i1.jpg";
-import infrastructure2 from "@/assets/i2.jpg";
-import infrastructure3 from "@/assets/i3.jpg";
-import infrastructure4 from "@/assets/i4.jpg";
-import infrastructure5 from "@/assets/i5.jpg";
-import infrastructure6 from "@/assets/i6.jpg";
+import infrastructure1 from "@/assets/i1.png";
+import infrastructure2 from "@/assets/i2.png";
+import infrastructure3 from "@/assets/i3.png";
+import infrastructure4 from "@/assets/i4.png";
+import infrastructure5 from "@/assets/i5.png";
+import infrastructure6 from "@/assets/i6.png";
 import kidsDentistry from "@/assets/kids densitry.jpg";
 import rootCanalTreatment from "@/assets/root.jpg";
 import teethWhitening from "@/assets/teeth whitening.jpg";
@@ -421,8 +421,8 @@ export function Doctors() {
                     </li>
                   </ul>
                   <a
-                    href="#appointment"
-                    className="mt-6 flex items-center justify-center gap-2 rounded-full border border-accent px-4 py-2.5 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary"
+                    href={`/contact?doctor=${encodeURIComponent(doctor.name)}#appointment`}
+                    className="mt-6 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e879f9] via-[#c084fc] to-[#a855f7] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_18px_42px_-18px_rgba(168,85,247,0.75)] transition-transform hover:scale-[1.02] hover:from-[#f0abfc] hover:via-[#d8b4fe] hover:to-[#b46cff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   >
                     Book Appointment
                   </a>
@@ -547,7 +547,7 @@ export function Services() {
                     {service.text}
                   </p>
                   <a
-                    href="#appointment"
+                    href="/contact#appointment"
                     className="mt-6 inline-flex items-center justify-between gap-3 rounded-lg border border-[#c084fc]/70 bg-[#b45cff] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_34px_-18px_rgba(126,34,206,0.75)] transition-colors hover:border-[#a855f7] hover:bg-[#9b35ff]"
                   >
                     <span>Book Appointment</span>
@@ -570,7 +570,7 @@ export function Services() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
               <a
-                href="#appointment"
+                href="/contact#appointment"
                 className="brand-gradient inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white shadow-soft transition-transform hover:scale-[1.02]"
               >
                 Book Appointment
